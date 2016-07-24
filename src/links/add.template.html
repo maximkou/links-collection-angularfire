@@ -1,0 +1,22 @@
+<div class="alert alert-success" role="alert" ng-show="isAdded">Запись добавлена!</div>
+<div class="alert alert-danger" role="alert" ng-show="addingError">{{addingError}}</div>
+
+<form name="addLinkForm">
+    <div class="form-group">
+        <label for="url">Ссылка *</label>
+        <input type="url" ng-model="link.url" name="url" id="url" required class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <label for="description">Описание *</label>
+        <textarea name="description" ng-model="link.description" id="description" ng-maxlength="200" required class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="tags">Теги</label>
+        <tags-input ng-model="link.tags" id="tags" class="form-control tags-input"></tags-input>
+    </div>
+
+    <input type="submit" ng-click="addLink()" value="Добавить" class="btn btn-success"/>
+    <a class="btn btn-default" href="#!/links/list">Вернуться к списку</a>
+</form>

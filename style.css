@@ -1,0 +1,20 @@
+td span.label {
+    margin: 0 1px;
+}
+.icon-btn {
+    overflow: hidden;
+    width: 14px;
+    height: 14px;
+}
+.tags-input.form-control .host {
+    margin: 0;
+}
+.tags-input.form-control {
+    padding: 0;
+}
+.tags-input.form-control .tags {
+    border: none;
+}
+.form-inline .tags-input.tags-input-wide {
+    width: 400px;
+}

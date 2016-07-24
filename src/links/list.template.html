@@ -1,0 +1,53 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Фильтрация ссылок</h3>
+        </div>
+        <div class="panel-body">
+            <form name="filterLinksForm" class="form-inline">
+                <div class="form-group">
+                    <label for="filter-tags">По тегам</label>
+                    <tags-input ng-model="filterModel.tags" id="filter-tags" class="form-control tags-input tags-input-wide"></tags-input>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>Описание</th>
+        <th>Теги</th>
+        <th>Добавлена</th>
+        <th width="30px"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="link in links | filter:filterLinks | orderBy:'-createdAt'" ng-if="links.length>0">
+            <td>
+                <a href="{{link.url}}" title="{{link.url}}" target="_blank" ng-bind="link.description"></a>
+                <div><small>{{link.url}}</small></div>
+            </td>
+
+            <td>
+                <span class="label label-default" ng-repeat="tag in link.tags" ng-bind="tag"></span>
+            </td>
+
+            <td>
+                {{link.createdAt | date:'dd.MM.yyyy HH:mm'}}
+            </td>
+
+            <td>
+                <a class="icon-btn glyphicon glyphicon-remove" href="#" ng-click="deleteLink(link.$id())" title="Удалить">
+                    Удалить
+                </a>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="4" ng-if="links.length==0">Ссылок не найдено</td>
+        </tr>
+    </tbody>
+</table>
