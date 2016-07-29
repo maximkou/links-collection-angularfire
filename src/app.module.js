@@ -2,19 +2,22 @@
  * Created by maximkou on 24.07.16.
  */
 
-function guid() {
-    function s4() {
-        return Math.floor((1 + Math.random()) * 0x10000)
-            .toString(16)
-            .substring(1);
+define(
+    [
+        'angular',
+        'firebase',
+        './links/links.module',
+        './links/links.components',
+        './users/users.module',
+        './users/users.controllers'
+    ],
+    function (ng) {
+        return ng.module('interestLinksApp', [
+            'firebase',
+            'ngRoute',
+            'ngTagsInput',
+            'links',
+            'users'
+        ]);
     }
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-        s4() + '-' + s4() + s4() + s4();
-}
-
-var links = angular.module('interestLinksApp', [
-    'firebase',
-    'ngRoute',
-    'links',
-    'ngTagsInput'
-]);
+);

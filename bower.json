@@ -21,6 +21,8 @@
     "angular-route": "^1.5.8",
     "bootstrap": "^3.3.6",
     "ngTagsInput": "https://github.com/mbenford/ngTagsInput",
-    "ng-tags-input": "3.1.1"
+    "ng-tags-input": "3.1.1",
+    "requirejs": "^2.2.0",
+    "requirejs-domready": "latest"
   }
 }

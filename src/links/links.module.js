@@ -1,4 +1,7 @@
 /**
  * Created by maximkou on 24.07.16.
  */
-angular.module('links', ['ngRoute']);
+
+define(['angular'], function (ng) {
+    return ng.module('links', ['ngRoute']);
+});

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="interestLinksApp">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Интересные ссылки</title>
@@ -25,18 +25,21 @@
                     </button>
                     <a class="navbar-brand" href="#">Links</a>
                 </div>
-               <div id="navbar" class="navbar-collapse collapse">
+
+               <div id="navbar" class="navbar-collapse collapse" ng-controller="AuthCtrl">
                    <ul class="nav navbar-nav">
                        <li>
-                           <a ng-href="#!/links/add">Добавить ссылку</a>
+                           <a ng-if="auth" ng-href="#!/links/add">Добавить ссылку</a>
+                           <a href="#" ng-if="!auth" onclick="return false;">Войдите, чтобы добавить ссылку</a>
                        </li>
                    </ul>
 
-                    <!--<ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
-                        <li><a href="../navbar-static-top/">Static top</a></li>
-                        <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-                    </ul>-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" ng-if="!auth" ng-click="login()">Войти</a>
+                            <a href="#" ng-if="auth" ng-click="logout()">Выйти ({{auth.displayName}})</a>
+                        </li>
+                    </ul>
                 </div>
             </div><!--/.container-fluid -->
         </nav>
@@ -45,32 +48,21 @@
 
     </div> <!-- /container -->
 
-    <!-- Firebase -->
-    <script src="bower_components/firebase/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyD2yS7a1Je8P9uU6CFBqeNBoqcVE5kWZQ4",
-            //authDomain: "interest-links.firebaseapp.com",
-            databaseURL: "https://interest-links.firebaseio.com",
-            storageBucket: "interest-links.appspot.com"
-        };
-        firebase.initializeApp(config);
-    </script>
-
-    <!-- AngularJS -->
+    <script src="bower_components/requirejs/require.js" data-main="src/app.js"></script>
+<!--
+    &lt;!&ndash; AngularJS &ndash;&gt;
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
-    <!-- AngularFire -->
+    &lt;!&ndash; AngularFire &ndash;&gt;
     <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
     <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
 
-    <!-- App -->
+    &lt;!&ndash; App &ndash;&gt;
     <script src="src/app.module.js"></script>
     <script src="src/app.config.js"></script>
 
-    <!-- Modules -->
+    &lt;!&ndash; Modules &ndash;&gt;
     <script src="src/links/links.module.js"></script>
-    <script src="src/links/links.components.js"></script>
+    <script src="src/links/links.components.js"></script>-->
 </body>
 </html>

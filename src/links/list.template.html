@@ -40,7 +40,7 @@
             </td>
 
             <td>
-                <a class="icon-btn glyphicon glyphicon-remove" href="#" ng-click="deleteLink(link.$id())" title="Удалить">
+                <a class="icon-btn glyphicon glyphicon-remove" href="#" ng-if="curUser && link.uid == curUser.uid" ng-click="deleteLink(link.$id)" title="Удалить">
                     Удалить
                 </a>
             </td>
