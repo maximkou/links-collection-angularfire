@@ -2,7 +2,7 @@
  * Created by maximkou on 29.07.16.
  */
 
-define(['./users.module'], function (users) {
+define(['../_module'], function (com) {
 
     function AuthCtrl($scope, Auth) {
 
@@ -20,6 +20,6 @@ define(['./users.module'], function (users) {
         });
     }
 
-    return users
+    return com
         .controller('AuthCtrl', ['$scope', 'Auth', AuthCtrl]);
 });

@@ -2,52 +2,8 @@
  * Created by maximkou on 24.07.16.
  */
 
-define(['./links.module', 'firebase'], function (links, firebase) {
+define(['../_module', 'firebase'], function (com, firebase) {
     var ref = firebase.database().ref().child('links');
-
-    // links page
-    function LinkListCtrl($scope, $firebaseArray, Auth) {
-
-        $scope.links = $firebaseArray(ref);
-        $scope.linksLoaded = false;
-        $scope
-            .links
-            .$loaded()
-            .then(function () {
-                $scope.linksLoaded = true;
-            });
-
-        $scope.curUser = Auth.user();
-        Auth.wait(function (data) {
-            $scope.curUser = data;
-        });
-
-        $scope.filterModel = {};
-        $scope.deleteLink = function (link) {
-            $scope
-                .links
-                .$remove(link)
-                .catch(function () {
-                    alert('Error on removing link. Maybe, link is not exist?');
-                });
-        };
-
-        $scope.filterLinks = function (link) {
-            var fv = $scope.filterModel.tags;
-
-            if (!fv || !fv.length) {
-                return true;
-            }
-
-            for (var i = 0; i < fv.length; i++) {
-                if (link.tags.indexOf(fv[i].text) !== -1) {
-                    return true;
-                }
-            }
-
-            return false;
-        };
-    }
 
     // add new link page
     function LinkAddCtrl($scope, $firebaseArray, Auth, pageTitleFilter) {
@@ -104,13 +60,8 @@ define(['./links.module', 'firebase'], function (links, firebase) {
         };
     }
 
-    return links
-        .component('linkList', {
-            templateUrl: 'src/links/list.template.html',
-            controller: ['$scope', '$firebaseArray', 'Auth', LinkListCtrl]
-        })
-        .component('linkAdd', {
-            templateUrl: 'src/links/add.template.html',
-            controller: ['$scope', '$firebaseArray', 'Auth', 'pageTitleFilter', LinkAddCtrl]
+    return com.component('linkAdd', {
+            templateUrl: 'src/components/links/add.template.html',
+            controller: ['$scope', '$firebaseArray', 'Auth', 'urlPageTitleFilter', LinkAddCtrl]
         });
 });

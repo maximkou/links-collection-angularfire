@@ -22,10 +22,13 @@ define([
             'domReady!',
             'app.module',
             'app.config',
-            'app.services',
             'angularfire',
             'ngRoute',
-            'ngTagsInput'
+            'ngTagsInput',
+            'directives/waitLoader',
+            'filters/favicon',
+            'filters/urlPageTitle',
+            'services/auth'
         ],
         function (document, interestLinksApp) {
             ng.bootstrap(document, ['interestLinksApp']);

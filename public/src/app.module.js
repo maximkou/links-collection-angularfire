@@ -6,18 +6,20 @@ define(
     [
         'angular',
         'firebase',
-        './links/links.module',
-        './links/links.components',
-        './users/users.module',
-        './users/users.controllers'
+        'components/_loader',
+        'directives/_loader',
+        'filters/_loader',
+        'services/_loader'
     ],
     function (ng) {
         return ng.module('interestLinksApp', [
             'firebase',
             'ngRoute',
             'ngTagsInput',
-            'links',
-            'users'
+            'app.components',
+            'app.directives',
+            'app.filters',
+            'app.services'
         ]);
     }
 );
