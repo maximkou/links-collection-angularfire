@@ -27,6 +27,7 @@
     <tbody>
         <tr ng-repeat="link in links | filter:filterLinks | orderBy:'-createdAt'" ng-if="links.length>0">
             <td>
+                <span><img ng-src="{{ link.url | favicon }}"/></span>
                 <a href="{{link.url}}" title="{{link.url}}" target="_blank" ng-bind="link.description"></a>
                 <div><small>{{link.url}}</small></div>
             </td>

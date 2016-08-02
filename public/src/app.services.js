@@ -45,5 +45,10 @@ define(['./app.module'], function (app) {
                     return auth;
                 }
             };
-        }]);
+        }])
+        .filter('favicon', function () {
+            return function (url) {
+                return 'https://www.google.com/s2/favicons?domain=' + url;
+            }
+        });
 });
