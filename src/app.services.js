@@ -8,13 +8,15 @@ define(['./app.module'], function (app) {
         .service('Auth', ['$firebaseAuth', function ($firebaseAuth) {
             var auth = $firebaseAuth(firebase.auth()),
                 data = null,
-                onChangeStateCallback = null;
+                onChangeStateCallbacks = [];
 
             auth.$onAuthStateChanged(function (udata) {
                 data = udata;
 
-                if (typeof onChangeStateCallback == 'function') {
-                    onChangeStateCallback(udata);
+                for (var i = 0; i < onChangeStateCallbacks.length; i++) {
+                    if (typeof onChangeStateCallbacks[i] == 'function') {
+                        onChangeStateCallbacks[i](udata);
+                    }
                 }
             });
 
@@ -28,7 +30,7 @@ define(['./app.module'], function (app) {
                 },
 
                 wait: function (callback) {
-                    onChangeStateCallback = callback;
+                    onChangeStateCallbacks.push(callback);
                 },
 
                 user: function () {

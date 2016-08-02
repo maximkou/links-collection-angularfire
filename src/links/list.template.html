@@ -40,14 +40,14 @@
             </td>
 
             <td>
-                <a class="icon-btn glyphicon glyphicon-remove" href="#" ng-if="curUser && link.uid == curUser.uid" ng-click="deleteLink(link.$id)" title="Удалить">
+                <a class="icon-btn glyphicon glyphicon-remove" href="#" ng-if="curUser && link.uid == curUser.uid" ng-click="deleteLink(link)" title="Удалить">
                     Удалить
                 </a>
             </td>
         </tr>
 
         <tr>
-            <td colspan="4" ng-if="links.length==0">Ссылок не найдено</td>
+            <td colspan="4" ng-if="links.length==0">{{!linksLoaded ? 'Список формируется, ожидайте...' : 'Ссылок не найдено'}}</td>
         </tr>
     </tbody>
 </table>

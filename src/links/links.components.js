@@ -9,17 +9,24 @@ define(['./links.module', 'firebase'], function (links, firebase) {
     function LinkListCtrl($scope, $firebaseArray, Auth) {
 
         $scope.links = $firebaseArray(ref);
-        $scope.curUser = null;
+        $scope.linksLoaded = false;
+        $scope
+            .links
+            .$loaded()
+            .then(function () {
+                $scope.linksLoaded = true;
+            });
+
+        $scope.curUser = Auth.user();
         Auth.wait(function (data) {
             $scope.curUser = data;
         });
 
         $scope.filterModel = {};
-        $scope.deleteLink = function (linkID) {
-            var object = $firebaseArray(ref.child(linkID));
-
-            object
-                .$remove()
+        $scope.deleteLink = function (link) {
+            $scope
+                .links
+                .$remove(link)
                 .catch(function () {
                     alert('Error on removing link. Maybe, link is not exist?');
                 });
