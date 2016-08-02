@@ -1,0 +1,23 @@
+{
+  "rules": {
+    	".read": true,
+      "links": {
+        "$link": {
+          	".validate": "newData.hasChildren(['url','description','tags', 'createdAt'])",
+            "url": {
+              ".validate": "newData.isString() && newData.val().length > 0"
+            },
+            "description": {
+              ".validate": "newData.isString() && newData.val().length > 0"
+            },
+            "createdAt": {
+              ".validate": "newData.isNumber()"
+            },
+            "uid": {
+              ".validate": "newData.isString() && newData.val().length > 0",
+            },
+            ".write": "data.child('uid').val() === auth.uid || (auth != null && newData.exists())"  
+        }
+     }
+  }
+}

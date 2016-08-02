@@ -1,15 +1,10 @@
-## Links Collection
+## Links Collection - https://interest-links.firebaseapp.com
 
 This example app it allows collecting links, tagging(and then filtering by this tags) and adding description for them.
 Used technologies:
 * [RequireJS](http://requirejs.org/)
 * [AngularJS](https://angularjs.org/) with [AngularFire](https://www.firebase.com/docs/web/libraries/angular/)
 * [Firebase](https://www.firebase.com/) as storage
-
-### How to see how it works?
-1. Clone repository or download as archive
-2. Run `bower install` for download dependencies
-3. Open `index.html`
 
 ### Capabilities:
 * List links and filtering by tags for any user
@@ -18,7 +13,6 @@ Used technologies:
 
 ### TODO List:
 * Create user profile page and store settings
-* Create test site for seing how it work
 
 ### License
 The MIT License (MIT)
