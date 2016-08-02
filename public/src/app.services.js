@@ -50,5 +50,23 @@ define(['./app.module'], function (app) {
             return function (url) {
                 return 'https://www.google.com/s2/favicons?domain=' + url;
             }
+        })
+        .filter('pageTitle', ['$http', function ($http) {
+            function getYqlUrl(url) {
+                return "https://query.yahooapis.com/v1/public/yql?q=select+*+from+html+where+url='" + url + "'+and+xpath='//title'&format=json&env=store://datatables.org/alltableswithkeys";
+            }
+
+            return function (url) {
+                return $http
+                    .get(getYqlUrl(url), {
+                        cache: true
+                    });
+            }
+        }])
+        .directive('waitLoader', function () {
+            return {
+                restrict: 'E',
+                template: '<img ng-src="img/loader.gif"/>'
+            };
         });
 });

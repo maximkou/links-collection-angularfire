@@ -50,9 +50,12 @@ define(['./links.module', 'firebase'], function (links, firebase) {
     }
 
     // add new link page
-    function LinkAddCtrl($scope, $firebaseArray, Auth) {
+    function LinkAddCtrl($scope, $firebaseArray, Auth, pageTitleFilter) {
+        var lastFetchedDescription = null;
+
         $scope.link = {};
         $scope.isAdded = false;
+        $scope.isLoadDescription = false;
 
         $scope.addLink = function () {
             if (!$scope.addLinkForm.$valid) {
@@ -84,7 +87,21 @@ define(['./links.module', 'firebase'], function (links, firebase) {
                         $scope.addingError = 'Cannot add record: ' + error;
                     }
                 );
-        }
+        };
+
+        $scope.fetchTitle = function (url) {
+            if ($scope.link.description && $scope.link.description != lastFetchedDescription) {
+                return false;
+            }
+
+            $scope.isLoadDescription = true;
+            pageTitleFilter(url).then(function (response) {
+                $scope.isLoadDescription = false;
+                if (response.data.query.count > 0) {
+                    $scope.link.description = lastFetchedDescription = response.data.query.results.title;
+                }
+            });
+        };
     }
 
     return links
@@ -94,6 +111,6 @@ define(['./links.module', 'firebase'], function (links, firebase) {
         })
         .component('linkAdd', {
             templateUrl: 'src/links/add.template.html',
-            controller: ['$scope', '$firebaseArray', 'Auth', LinkAddCtrl]
+            controller: ['$scope', '$firebaseArray', 'Auth', 'pageTitleFilter', LinkAddCtrl]
         });
 });
