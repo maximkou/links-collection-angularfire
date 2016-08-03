@@ -4,14 +4,6 @@
 
 define(['app.module', 'angular'], function (app, ng) {
 
-    var LANGUAGES = {
-        Russian: 'ru',
-        English: 'en'
-    };
-
-    app.constant('LANGUAGES', LANGUAGES);
-    app.constant('DEFAULT_LANG', LANGUAGES.English);
-
     /**
      * @param $location
      * @param $router

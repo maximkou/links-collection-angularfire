@@ -1,0 +1,43 @@
+{
+  "default": "en",
+
+  "en": {
+    "PROJECT_NAME": "Links Collection",
+    "DESCRIPTION": "Description",
+    "URL": "URL",
+    "TAGS": "Tags",
+    "ADD": "Add",
+    "BACK_TO_LIST": "Back to list",
+    "ADD_LINK": "Add link",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "FILTERING": "Filtering",
+    "BY_TAGS": "By tags",
+    "ADD_DATE": "Added",
+    "REMOVE": "Remove",
+    "LOGIN_FOR_ADD": "Login for adding link",
+    "LIST_LOADING": "Loading in process...",
+    "NO_LINKS": "No links founded",
+    "LINK_ADDED": "Link added!"
+  },
+
+  "ru": {
+    "PROJECT_NAME": "Интересные ссылки",
+    "DESCRIPTION": "Описание",
+    "URL": "Ссылка",
+    "TAGS": "Теги",
+    "ADD": "Добавить",
+    "BACK_TO_LIST": "Вернуться к списку",
+    "ADD_LINK": "Добавить ссылку",
+    "LOGIN": "Войти",
+    "LOGOUT": "Выйти",
+    "FILTERING": "Фильтрация ссылок",
+    "BY_TAGS": "По тегам",
+    "ADD_DATE": "Добавлена",
+    "REMOVE": "Удалить",
+    "LOGIN_FOR_ADD": "Войдите, чтобы добавить ссылку",
+    "LIST_LOADING": "Список формируется, ожидайте...",
+    "NO_LINKS": "Ссылок не найдено",
+    "LINK_ADDED": "Ссылка добавлена!"
+  }
+}

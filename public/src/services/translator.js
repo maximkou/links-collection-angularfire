@@ -6,30 +6,44 @@ define(['./_module', 'angular'], function (module, ng) {
     module.service(
         'Translator',
         [
-            'LANGUAGES',
-            'DEFAULT_LANG',
             '$http',
-            '$translate',
-            function (LANGUAGES, DEFAULT_LANG, $http, $translate) {
+            '$window',
+            function ($http, $window) {
+                var available = [],
+                    defaultLang = null;
+
+                function getCurrentLang(defaultLang) {
+                    var lang = $window.navigator.language || $window.navigator.userLanguage;
+
+                    if (!lang) {
+                        return defaultLang;
+                    }
+
+                    return lang.split('-')[0];
+                }
+
                 return {
                     init: function ($translateProvider) {
-                        ng.forEach(LANGUAGES, function (value) {
-                            $http
-                                .get('src/languages/' + value + '.json')
-                                .then(function (response) {
-                                    $translateProvider.translations(value, response.data);
+                        $http
+                            .get('src/translations.json')
+                            .then(function (response) {
 
-                                    if (value == DEFAULT_LANG) {
-                                        $translateProvider
-                                            .preferredLanguage(DEFAULT_LANG)
-                                            .use(DEFAULT_LANG);
+                                ng.forEach(response.data, function (messages, lang) {
+                                    if (lang == 'default') {
+                                        defaultLang = messages;
+                                    } else {
+                                        $translateProvider.translations(lang, messages);
                                     }
                                 });
-                        });
+
+                                $translateProvider
+                                    .preferredLanguage(defaultLang)
+                                    .use(getCurrentLang(defaultLang));
+                            });
                     },
 
                     getAvailableLanguages: function () {
-                        return LANGUAGES;
+                        return available;
                     },
 
                     getDefault: function () {
