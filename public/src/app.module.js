@@ -6,6 +6,7 @@ define(
     [
         'angular',
         'firebase',
+        'translate',
         'components/_loader',
         'directives/_loader',
         'filters/_loader',
@@ -16,6 +17,7 @@ define(
             'firebase',
             'ngRoute',
             'ngTagsInput',
+            'pascalprecht.translate',
             'app.components',
             'app.directives',
             'app.filters',

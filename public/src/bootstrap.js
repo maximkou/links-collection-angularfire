@@ -24,11 +24,7 @@ define([
             'app.config',
             'angularfire',
             'ngRoute',
-            'ngTagsInput',
-            'directives/waitLoader',
-            'filters/favicon',
-            'filters/urlPageTitle',
-            'services/auth'
+            'ngTagsInput'
         ],
         function (document, interestLinksApp) {
             ng.bootstrap(document, ['interestLinksApp']);

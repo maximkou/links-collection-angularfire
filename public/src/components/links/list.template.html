@@ -1,12 +1,12 @@
 <div>
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Фильтрация ссылок</h3>
+            <h3 class="panel-title">{{ 'FILTERING' | translate }}</h3>
         </div>
         <div class="panel-body">
             <form name="filterLinksForm" class="form-inline">
                 <div class="form-group">
-                    <label for="filter-tags">По тегам</label>
+                    <label for="filter-tags">{{ 'BY_TAGS' | translate }}</label>
                     <tags-input ng-model="filterModel.tags" id="filter-tags" class="form-control tags-input tags-input-wide"></tags-input>
                 </div>
             </form>
@@ -17,9 +17,9 @@
 <table class="table table-striped table-bordered">
     <thead>
     <tr>
-        <th>Описание</th>
-        <th>Теги</th>
-        <th>Добавлена</th>
+        <th>{{ 'DESCRIPTION' | translate }}</th>
+        <th>{{ 'TAGS' | translate }}</th>
+        <th>{{ 'ADD_DATE' | translate }}</th>
         <th width="30px"></th>
     </tr>
     </thead>
@@ -41,14 +41,14 @@
             </td>
 
             <td>
-                <a class="icon-btn glyphicon glyphicon-remove" href="#" ng-if="curUser && link.uid == curUser.uid" ng-click="deleteLink(link)" title="Удалить">
-                    Удалить
+                <a class="icon-btn glyphicon glyphicon-remove" href="#" ng-if="curUser && link.uid == curUser.uid" ng-click="deleteLink(link)" title="{{ 'REMOVE' | translate }}">
+                    {{ 'REMOVE' | translate }}
                 </a>
             </td>
         </tr>
 
         <tr>
-            <td colspan="4" ng-if="links.length==0">{{!linksLoaded ? 'Список формируется, ожидайте...' : 'Ссылок не найдено'}}</td>
+            <td colspan="4" ng-if="links.length==0">{{!linksLoaded ? 'LIST_LOADING' : 'NO_LINKS' | translate}}</td>
         </tr>
     </tbody>
 </table>

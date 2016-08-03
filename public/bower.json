@@ -23,6 +23,7 @@
     "ngTagsInput": "https://github.com/mbenford/ngTagsInput",
     "ng-tags-input": "3.1.1",
     "requirejs": "^2.2.0",
-    "requirejs-domready": "latest"
+    "requirejs-domready": "latest",
+    "angular-translate": "^2.11.1"
   }
 }

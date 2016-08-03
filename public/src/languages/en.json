@@ -1,0 +1,19 @@
+{
+  "PROJECT_NAME": "Links Collection",
+  "DESCRIPTION": "Description",
+  "URL": "URL",
+  "TAGS": "Tags",
+  "ADD": "Add",
+  "BACK_TO_LIST": "Back to list",
+  "ADD_LINK": "Add link",
+  "LOGIN": "Login",
+  "LOGOUT": "Logout",
+  "FILTERING": "Filtering",
+  "BY_TAGS": "By tags",
+  "ADD_DATE": "Added",
+  "REMOVE": "Remove",
+  "LOGIN_FOR_ADD": "Login for adding link",
+  "LIST_LOADING": "Loading in process...",
+  "NO_LINKS": "No links founded",
+  "LINK_ADDED": "Link added!"
+}

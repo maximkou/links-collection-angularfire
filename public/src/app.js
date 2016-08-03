@@ -9,6 +9,7 @@ requirejs.config({
         'angular': '../bower_components/angular/angular',
         'ngRoute': '../bower_components/angular-route/angular-route',
         'angularfire': '../bower_components/angularfire/dist/angularfire',
+        'translate': '../bower_components/angular-translate/angular-translate',
         'ngTagsInput': '../bower_components/ng-tags-input/ng-tags-input'
     },
 
