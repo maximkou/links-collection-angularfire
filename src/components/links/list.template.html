@@ -33,7 +33,7 @@
             </td>
 
             <td>
-                <span class="label label-default" ng-repeat="tag in link.tags" ng-bind="tag"></span>
+                <span class="label label-default clickable-tag" ng-repeat="tag in link.tags" ng-bind="tag" ng-click="selectTag(tag)"></span>
             </td>
 
             <td>

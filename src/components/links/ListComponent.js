@@ -22,7 +22,7 @@ define(['../_module', 'firebase'], function (com, firebase) {
             $scope.curUser = data;
         });
 
-        $scope.filterModel = {};
+        $scope.filterModel = { tags: [] };
         $scope.deleteLink = function (link) {
             $scope
                 .links
@@ -30,6 +30,10 @@ define(['../_module', 'firebase'], function (com, firebase) {
                 .catch(function () {
                     alert('Error on removing link. Maybe, link is not exist?');
                 });
+        };
+
+        $scope.selectTag = function (tag) {
+            $scope.filterModel.tags.push({text: tag});
         };
 
         $scope.filterLinks = function (link) {
