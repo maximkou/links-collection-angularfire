@@ -1,9 +1,9 @@
 {
   "rules": {
-    	".read": true,
+      ".read": true,
       "links": {
         "$link": {
-          	".validate": "newData.hasChildren(['url','description','tags', 'createdAt'])",
+          	".validate": "newData.hasChildren(['url','description','createdAt'])",
             "url": {
               ".validate": "newData.isString() && newData.val().length > 0"
             },
