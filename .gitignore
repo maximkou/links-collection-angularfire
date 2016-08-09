@@ -1,2 +1,4 @@
-public/bower_components/
+bower_components/
 .firebaserc
+build/
+node_modules/

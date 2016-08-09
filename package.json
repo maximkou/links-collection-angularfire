@@ -1,0 +1,28 @@
+{
+  "name": "links-collection-angularfire",
+  "version": "1.0.0",
+  "description": "This example app it allows collecting links, tagging(and then filtering by this tags) and adding description for them. Used technologies: * [RequireJS](http://requirejs.org/) * [AngularJS](https://angularjs.org/) with [AngularFire](https://www.firebase.com/docs/web/libraries/angular/) * [Firebase](https://www.firebase.com/) as storage",
+  "main": "build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maximkou/links-collection-angularfire.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maximkou/links-collection-angularfire/issues"
+  },
+  "homepage": "https://github.com/maximkou/links-collection-angularfire#readme",
+  "devDependencies": {
+    "del": "^2.2.1",
+    "es6-promise": "^3.2.1",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-html-replace": "^1.6.1",
+    "gulp-requirejs-optimize": "^1.2.0"
+  }
+}

@@ -19,6 +19,18 @@ requirejs.config({
         },
         'firebase': {
             exports: 'firebase'
+        },
+        'ngRoute': {
+            deps: ['angular']
+        },
+        'translate': {
+            deps: ['angular']
+        },
+        'angularfire': {
+            deps: ['angular']
+        },
+        'ngTagsInput': {
+            deps: ['angular']
         }
     },
 
