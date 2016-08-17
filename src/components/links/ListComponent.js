@@ -32,8 +32,16 @@ define(['../_module', 'firebase'], function (com, firebase) {
                 });
         };
 
-        $scope.selectTag = function (tag) {
-            $scope.filterModel.tags.push({text: tag});
+        $scope.selectTag = function (tagText) {
+            var collection = $scope.filterModel.tags;
+
+            for (var k in collection) {
+                if (collection[k].text == tagText) {
+                    return;
+                }
+            }
+
+            collection.push({text: tagText});
         };
 
         $scope.filterLinks = function (link) {
@@ -44,7 +52,7 @@ define(['../_module', 'firebase'], function (com, firebase) {
             }
 
             for (var i = 0; i < fv.length; i++) {
-                if (link.tags.indexOf(fv[i].text) !== -1) {
+                if (Array.isArray(link.tags) && link.tags.indexOf(fv[i].text) !== -1) {
                     return true;
                 }
             }
