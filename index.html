@@ -34,7 +34,7 @@
                    <ul class="nav navbar-nav">
                        <li>
                            <a ng-if="auth" ng-href="#!/links/add">{{ 'ADD_LINK' | translate }}</a>
-                           <a href="#" ng-if="!auth" onclick="return false;">{{ 'LOGIN_FOR_ADD' | translate }}</a>
+                           <a href="#" ng-if="!auth" ng-click="login()">{{ 'LOGIN_FOR_ADD' | translate }}</a>
                        </li>
                    </ul>
 

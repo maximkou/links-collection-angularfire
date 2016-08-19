@@ -6,7 +6,7 @@ define(['../_module', 'firebase'], function (com, firebase) {
     var ref = firebase.database().ref().child('links');
 
     // links page
-    function LinkListCtrl($scope, $firebaseArray, Auth) {
+    function LinkListCtrl($scope, $firebaseArray, FilterState, Auth) {
 
         $scope.links = $firebaseArray(ref);
         $scope.linksLoaded = false;
@@ -23,6 +23,11 @@ define(['../_module', 'firebase'], function (com, firebase) {
         });
 
         $scope.filterModel = { tags: [] };
+        var lastFilterState = FilterState.getState();
+        if (lastFilterState) {
+            $scope.filterModel.tags = lastFilterState;
+        }
+
         $scope.deleteLink = function (link) {
             $scope
                 .links
@@ -59,10 +64,14 @@ define(['../_module', 'firebase'], function (com, firebase) {
 
             return false;
         };
+
+        $scope.$watchCollection('filterModel.tags', function (newVal, oldVal) {
+            FilterState.setState(newVal);
+        });
     }
 
     return com.component('linkList', {
             templateUrl: 'src/components/links/list.template.html',
-            controller: ['$scope', '$firebaseArray', 'Auth', LinkListCtrl]
+            controller: ['$scope', '$firebaseArray', 'FilterState', 'Auth', LinkListCtrl]
         });
 });

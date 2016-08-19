@@ -3,5 +3,6 @@
  */
 define([
     './auth',
-    './translator'
+    './translator',
+    './filterState'
 ], function () {});
